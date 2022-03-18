@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+
+<!--link with external css-->
+
+ <head>
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,700i|Open+Sans:400,400i,700"
+        rel="stylesheet">
+    <link rel="stylesheet" href="291.css">
+ </head>
+
+ <!--javascript functions-->
+ <head>
+    <script>
+        function newalert() {
+            alert("FBI WARNING: You are visiting an insecured website!");
+        }
+    </script>
+ </head>
+ 
+
+ <body>
+    <div class="MainTitle">
+        <header>
+            <div class="header-right">
+                <h1>CPEN291-G14A Remote Controlled Car</h1>
+            </div>
+        </header>
+    </div>
+
+    <div class="carimg">
+        <img src = "car.png">
+    </div>
+    
+    <div class="mainpage">
+        <!--movement control arrow button animation-->
+        <div class="buttons" onclick="newalert()">
+            <div id="toparrowicon">
+                <div class="Tmidstick"></div>
+                <div class="Tleftstick"></div>
+                <div class="Trightstick"></div>
+            </div>
+
+            <div id="leftarrowicon">
+                <div class="Lmidstick"></div>
+                <div class="Ltopstick"></div>
+                <div class="Lbotstick"></div>
+            </div>
+          
+            <div id="rightarrowicon">
+                <div class="Rmidstick"></div>
+                <div class="Rtopstick"></div>
+                <div class="Rbotstick"></div>
+            </div>
+            
+            <div id="botarrowicon">
+                <div class="Bmidstick"></div>
+                <div class="Bleftstick"></div>
+                <div class="Brightstick"></div>
+            </div>
+        </div>
+
+        <!--distance numbers of four sides-->
+        <div class = "distance">
+            <p id="LeftDistance" onkeydown="doWhichKey(event)"></p>
+            <p id="RightDistance" onkeydown="doWhichKey(event)"></p>
+            <p id="TopDistance" onkeydown="doWhichKey(event)"></p>
+            <p id="BotDistance" onkeydown="doWhichKey(event)"></p>
+        </div>
+
+    </div>
+    
+    <script>
+        var leftdistance = 0;//TODO: getleftdistance()
+        document.getElementById("LeftDistance").innerHTML = leftdistance;
+        var rightdistance = 0;//TODO: getrightdistance()
+        document.getElementById("RightDistance").innerHTML = rightdistance;
+        var topdistance = 0;//TODO: gettopdistance()
+        document.getElementById("TopDistance").innerHTML = topdistance;
+        var botdistance = 0;//TODO: getbotdistance()
+        document.getElementById("BotDistance").innerHTML = botdistance;
+    </script>
+
+    <script>
+        function doWhichKey(e) { 
+            e = e || window.event;
+            var charCode = e.keyCode || e.which;
+            if(charCode==119){ // W Pressed
+                
+            } else if (charCode == 97) { // A Pressed
+                
+            } else if (charCode == 100) { // D Pressed
+               
+            } else if (charCode == 115) { // S Pressed
+            
+            }
+        } 
+
+        window.addEventListener('keypress', function (e) { 
+            console.log("You pressed " + doWhichKey(e));
+        }, false);
+       
+    </script>
+
+ </body>
+
+</html>
