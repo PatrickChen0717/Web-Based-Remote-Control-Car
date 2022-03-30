@@ -5,6 +5,7 @@ const port = 80;
 
 
 const fs = require('fs')
+const Jimp = require("jimp");
 var distance1 = 0;
 var distance2 = 0;
 var distance3 = 0;
@@ -12,21 +13,27 @@ var distance4 = 0;
 var express = require('express'); 
 var bodyParser = require('body-parser'); 
 var app = express(); 
-
+var data_html;
 
 
 app.use('/', express.static('public'));
-app.use(bodyParser.json()); 
-app.use(bodyParser.urlencoded({ extended: false })); 
-  
+app.use(bodyParser.json({limit:'50mb'})); 
+app.use(bodyParser.urlencoded({ limit:'50mb',extended: true })); 
 app.post("/postdata", (req, res) => { 
         
     var left = req.body.leftdist; 
     var right = req.body.rightdist; 
     var front = req.body.frontdist; 
     var back = req.body.backdist; 
-    console.log( left ,right ,front ,back);
-    
+    var img = req.body.image;
+    console.log( left ,right ,front ,back ,img);
+
+    const buffer = Buffer.from(img, "base64");
+    Jimp.read(buffer, (err, res) => {
+        if (err) throw new Error(err);
+        res.quality(23).write("./public/resized.jpg");
+    });
+
     
 
     fs.writeFile('./public/leftData.txt', String(left), err => {
@@ -57,16 +64,33 @@ app.post("/postdata", (req, res) => {
         }
         //file written successfully
     })
+
     
     res.send("process complete"); 
 }); 
- 
+
+app.post("/instruc", (req, res) => { 
+        
+    data_html= req.body.direction; 
+    console.log( data_html );
+    
+    res.send("process complete"); 
+}); 
+
 
 app.get("/getdata", (req, res) => { 
     var data= { // this is the data you're sending back during the GET request 
         direction: "forward",
     } 
-    res.status(200).json(data) 
+    var sendup={
+        direction:data_html,
+    }
+    if(data_html!=null){
+    res.status(200).json(sendup) 
+    }
+    else{
+        res.status(200).json(data)
+    }
 }); 
 
 

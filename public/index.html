@@ -42,15 +42,11 @@
 
 
  <head>
-    <!-- <script>
-        function httpGet("http://cpen291-14.ece.ubc.ca/instruc"){
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open( "GET", theUrl, false );
-            data = {instruc: forward} ;
-            xmlHttp.send( data );
-            return xmlHttp.responseText;
-        }
-    </script> -->
+    <script>
+
+    </script>
+
+
  </head>
 
  
@@ -124,20 +120,132 @@
             e = e || window.event;
             var charCode = e.keyCode || e.which;
             if(charCode==119){ // W Pressed
-                document.getElementById("toparrowicon").click();
+                requestingw();
             } else if (charCode == 97) { // A Pressed
-                
+                requestingl();
             } else if (charCode == 100) { // D Pressed
-               
+                requestingd();
             } else if (charCode == 115) { // S Pressed
-            
+                requestings();
+            } else{
+                requestingn();
             }
         } 
 
         window.addEventListener('keypress', function (e) { 
             console.log("You pressed " + doWhichKey(e));
         }, false);
-       
+
+
+
+        function requestingw(){
+            var url = "http://cpen291-14.ece.ubc.ca/instruc";
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url);
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                console.log(xhr.status);
+                console.log(xhr.responseText);
+            }};
+
+            xhr.send('{"direction": "forward" , "Customer": "Jason Sweet"}');
+        }
+
+        function requestingl(){
+
+            var url = "http://cpen291-14.ece.ubc.ca/instruc";
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url);
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                console.log(xhr.status);
+                console.log(xhr.responseText);
+            }};
+
+            xhr.send('{"direction": "leftward" , "Customer": "Jason Sweet"}');
+
+        }
+        function requestings(){
+
+            var url = "http://cpen291-14.ece.ubc.ca/instruc";
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url);
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                console.log(xhr.status);
+                console.log(xhr.responseText);
+            }};
+
+            xhr.send('{"direction": "backward" , "Customer": "Jason Sweet"}');
+
+        }
+
+        function requestingd(){
+
+            var url = "http://cpen291-14.ece.ubc.ca/instruc";
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url);
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                console.log(xhr.status);
+                console.log(xhr.responseText);
+            }};
+
+            xhr.send('{"direction": "rightward" , "Customer": "Jason Sweet"}');
+
+        }
+        function requestingn(){
+
+                var url = "http://cpen291-14.ece.ubc.ca/instruc";
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", url);
+                xhr.setRequestHeader("Accept", "application/json");
+                xhr.setRequestHeader("Content-Type", "application/json");
+
+                xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    console.log(xhr.status);
+                    console.log(xhr.responseText);
+                }};
+
+                xhr.send('{"direction": "null" , "Customer": "Jason Sweet"}');
+
+            }
+
+
+
+        // var url = "http://cpen291-14.ece.ubc.ca/instruc";
+
+        // var xhr = new XMLHttpRequest();
+        // xhr.open("POST", url);
+        // xhr.setRequestHeader("Accept", "application/json");
+        // xhr.setRequestHeader("Content-Type", "application/json");
+
+        // xhr.onreadystatechange = function () {
+        // if (xhr.readyState === 4) {
+        //     console.log(xhr.status);
+        //     console.log(xhr.responseText);
+        // }};
+
+        // xhr.send('{"Id": 78912, "Customer": "Jason Sweet"}');
+            
     </script>
 
  </body>
