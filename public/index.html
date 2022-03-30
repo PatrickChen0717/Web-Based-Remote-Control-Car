@@ -12,29 +12,48 @@
  </head>
 
  <!--javascript functions-->
- <head>
-    <script>
-        function newalert() {
-            alert("FBI WARNING: You are visiting an insecured website!");
-        }
-    </script>
- </head>
+ <script type="text/javascript">    
 
- 
-<script type="text/javascript">    
+    var sourceL = new EventSource('/left')
 
-    var source = new EventSource('/newProject')
-
-    source.addEventListener('message', function(e) {            
+    sourceL.addEventListener('message', function(e) {            
         document.getElementById('LeftDistance').innerHTML = e.data;
+    }, false)
+
+    var sourceR = new EventSource('/right')
+
+    sourceR.addEventListener('message', function(e) { 
         document.getElementById('RightDistance').innerHTML = e.data;
+    }, false)
+
+    var sourceF = new EventSource('/front')
+
+    sourceF.addEventListener('message', function(e) {            
         document.getElementById('TopDistance').innerHTML = e.data;
+    }, false)
+
+    var sourceB = new EventSource('/back')
+
+    sourceB.addEventListener('message', function(e) {            
         document.getElementById('BotDistance').innerHTML = e.data;
     }, false)
 
 </script>
 
 
+ <head>
+    <!-- <script>
+        function httpGet("http://cpen291-14.ece.ubc.ca/instruc"){
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false );
+            data = {instruc: forward} ;
+            xmlHttp.send( data );
+            return xmlHttp.responseText;
+        }
+    </script> -->
+ </head>
+
+ 
 
  <body>
     <div class="MainTitle">
@@ -51,9 +70,8 @@
     
     <div class="mainpage">
         <!--movement control arrow button animation-->
-        <div class="buttons" >
-            <!-- onclick="newalert()" -->
-            <div id="toparrowicon">
+        <div class="buttons">
+            <div id="toparrowicon" onclick="httpGet()">
                 <div class="Tmidstick"></div>
                 <div class="Tleftstick"></div>
                 <div class="Trightstick"></div>
@@ -123,5 +141,4 @@
     </script>
 
  </body>
-
 </html>
