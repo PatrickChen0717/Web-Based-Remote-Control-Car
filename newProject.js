@@ -102,6 +102,11 @@ app.get("/getdata", (req, res) => {
     }
 }); 
 
+app.get('/public/resized.jpg', (req, res) => {
+    
+    res.sendFile('/home/a14root/web/public/resized.jpg')
+  });
+
 
 app.get('/left', function(req, res) {
 

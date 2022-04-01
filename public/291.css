@@ -1,12 +1,8 @@
-div.MainTitle{
-    display:flex;
-    flex-direction:row;
-    justify-content: center;
-}
-
 /*body*/
 body {
     background-color: #01d6e6;
+    width: 400px;
+    height: 300px;
     margin: 0;
     padding: 0;
 }
@@ -218,31 +214,50 @@ body {
 
 /*-------------------------Distance Position--------------------------*/
 #LeftDistance {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Andale Mono, monospace;
     position: absolute;
     top: 50%;
-    left: 50%;
-    margin-left: -85px;
-}
+    left: 10%;
+
+
+    /* margin-left: -85px; */
+} 
 
 #RightDistance {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Andale Mono, monospace;
     position: absolute;
     top: 50%;
-    left: 50%;
-    margin-left: 65px;
+    left: 90%;
+    margin-left: -45px;
+    /* margin-left: 65px; */
 }
 
 #TopDistance {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Andale Mono, monospace;
     position: absolute;
-    top: 50%;
+    top: 10%;
     left: 50%;
-    margin-left: -10px;
-    margin-top: -135px;
+    margin-left: -45px;
+    /*margin-top: -135px; */
 }
 
 #BotDistance {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Andale Mono, monospace;
     position: absolute;
-    top: 50%;
+    top: 90%;
     left: 50%;
-    margin-left: -10px;
-    margin-top: 140px;
+    margin-left: -45px;
+    /*margin-top: 140px; */
 }
