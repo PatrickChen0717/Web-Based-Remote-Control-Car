@@ -167,7 +167,7 @@
                 console.log(xhr.responseText);
             }};
 
-            xhr.send('{"direction": "forward" , "Customer": "Jason Sweet"}');
+            xhr.send('{"direction": "forward" }');
         }
 
         function requestingl(){
@@ -185,7 +185,7 @@
                 console.log(xhr.responseText);
             }};
 
-            xhr.send('{"direction": "leftward" , "Customer": "Jason Sweet"}');
+            xhr.send('{"direction": "leftward" }');
 
         }
         function requestings(){
@@ -203,7 +203,7 @@
                 console.log(xhr.responseText);
             }};
 
-            xhr.send('{"direction": "backward" , "Customer": "Jason Sweet"}');
+            xhr.send('{"direction": "backward" }');
 
         }
 
@@ -240,44 +240,13 @@
                     console.log(xhr.responseText);
                 }};
 
-                xhr.send('{"direction": "null" , "Customer": "Jason Sweet"}');
+                xhr.send('{"direction": "null" }');
 
         }
-        function singleclickw(){
-            var url = "http://cpen291-14.ece.ubc.ca/instruc";
-
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", url);
-            xhr.setRequestHeader("Accept", "application/json");
-            xhr.setRequestHeader("Content-Type", "application/json");
-
-            xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                console.log(xhr.status);
-                console.log(xhr.responseText);
-            }};
-
-            xhr.send('{"direction": "forward" , "Customer": "Jason Sweet"}');
-            time.sleep(0.2);
-            xhr.send('{"direction": "none" , "Customer": "Jason Sweet"}');
-        }
 
 
 
-        // var url = "http://cpen291-14.ece.ubc.ca/instruc";
 
-        // var xhr = new XMLHttpRequest();
-        // xhr.open("POST", url);
-        // xhr.setRequestHeader("Accept", "application/json");
-        // xhr.setRequestHeader("Content-Type", "application/json");
-
-        // xhr.onreadystatechange = function () {
-        // if (xhr.readyState === 4) {
-        //     console.log(xhr.status);
-        //     console.log(xhr.responseText);
-        // }};
-
-        // xhr.send('{"Id": 78912, "Customer": "Jason Sweet"}');
             
     </script>
 
