@@ -67,25 +67,25 @@
     <div class="mainpage">
         <!--movement control arrow button animation-->
         <div class="buttons">
-            <div id="toparrowicon" onclick="httpGet()">
+            <div id="toparrowicon"  >
                 <div class="Tmidstick"></div>
                 <div class="Tleftstick"></div>
                 <div class="Trightstick"></div>
             </div>
 
-            <div id="leftarrowicon">
+            <div id="leftarrowicon"   >
                 <div class="Lmidstick"></div>
                 <div class="Ltopstick"></div>
                 <div class="Lbotstick"></div>
             </div>
           
-            <div id="rightarrowicon">
+            <div id="rightarrowicon"  >
                 <div class="Rmidstick"></div>
                 <div class="Rtopstick"></div>
                 <div class="Rbotstick"></div>
             </div>
             
-            <div id="botarrowicon">
+            <div id="botarrowicon"  >
                 <div class="Bmidstick"></div>
                 <div class="Bleftstick"></div>
                 <div class="Brightstick"></div>
@@ -94,10 +94,11 @@
 
         <!--distance numbers of four sides-->
         <div class = "distance">
-            <p id="LeftDistance" onkeydown="doWhichKey(event)"></p>
-            <p id="RightDistance" onkeydown="doWhichKey(event)"></p>
-            <p id="TopDistance" onkeydown="doWhichKey(event)"></p>
-            <p id="BotDistance" onkeydown="doWhichKey(event)"></p>
+            <p id="LeftDistance"  ></p>
+            <p id="RightDistance" ></p>
+            <p id="TopDistance" ></p>
+            <p id="BotDistance" ></p>
+           
         </div>
 
     </div>
@@ -136,8 +137,22 @@
             console.log("You pressed " + doWhichKey(e));
         }, false);
 
+        window.addEventListener('keyup', function (e) { 
+            console.log("You up " + requestingn());
+        }, false);
+        
+
+        document.getElementById("toparrowicon").addEventListener("mousedown", requestingw);
+        document.getElementById("leftarrowicon").addEventListener("mousedown", requestingl);
+        document.getElementById("rightarrowicon").addEventListener("mousedown", requestingd);
+        document.getElementById("botarrowicon").addEventListener("mousedown", requestings);
 
 
+
+        window.addEventListener('mouseup', e => {
+            requestingn();
+            
+        });
         function requestingw(){
             var url = "http://cpen291-14.ece.ubc.ca/instruc";
 
@@ -227,7 +242,25 @@
 
                 xhr.send('{"direction": "null" , "Customer": "Jason Sweet"}');
 
-            }
+        }
+        function singleclickw(){
+            var url = "http://cpen291-14.ece.ubc.ca/instruc";
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url);
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                console.log(xhr.status);
+                console.log(xhr.responseText);
+            }};
+
+            xhr.send('{"direction": "forward" , "Customer": "Jason Sweet"}');
+            time.sleep(0.2);
+            xhr.send('{"direction": "none" , "Customer": "Jason Sweet"}');
+        }
 
 
 

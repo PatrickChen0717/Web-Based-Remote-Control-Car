@@ -25,15 +25,9 @@ app.post("/postdata", (req, res) => {
     var right = req.body.rightdist; 
     var front = req.body.frontdist; 
     var back = req.body.backdist; 
-    var img = req.body.image;
-    console.log( left ,right ,front ,back ,img);
 
-    const buffer = Buffer.from(img, "base64");
-    Jimp.read(buffer, (err, res) => {
-        if (err) throw new Error(err);
-        res.quality(23).write("./public/resized.jpg");
-    });
 
+    console.log(left,right,front,back);
     
 
     fs.writeFile('./public/leftData.txt', String(left), err => {
@@ -69,10 +63,25 @@ app.post("/postdata", (req, res) => {
     res.send("process complete"); 
 }); 
 
+app.post("/postimg",(req,res)=>{
+
+    var img = req.body.image;
+    if(img!=""){
+        console.log('recieving umg');
+        const buffer = Buffer.from(img, "base64");
+        Jimp.read(buffer, (err, res) => {
+             if (err) throw new Error(err);
+             res.quality(15).write("./public/resized.jpg");
+        });
+        console.log('recieving done ');
+    }
+    res.send("process complete"); 
+});
+
 app.post("/instruc", (req, res) => { 
         
     data_html= req.body.direction; 
-    console.log( data_html );
+   // console.log( data_html );
     
     res.send("process complete"); 
 }); 
