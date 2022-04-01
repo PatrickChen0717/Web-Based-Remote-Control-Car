@@ -95,18 +95,22 @@
       </div>
     </section>
 
-
+    <!-- the user instruction section of webpage -->
     <section id="use" class="p-5 text-light bg-secondary">
       <div class="container">
         <div class="row align-items-center justify-content-between">
           <div class="col-md p-5">
             <h1 style="font-weight: bold;" class="pb-2">How to use</h1>
+            <p class="lead pb-3">
+              You can control the car by simply pressing the interactive buttons on the control page. For a more immersive experience, you can also use the precision mode, “WASD” control. You will be able to view the live capture by clicking the “Warning IMG” button on the main control page.
+            </p>
             <p class="lead">
               W: forward full throttle <br>
               S: reverse gear <br>
               A: turn left <br>
               D: turn right <br>
             </p>
+
             <a href="#" class="btn btn-light mt-3">
               <i class="bi bi-chevron-right"></i>
               Read More 
@@ -257,13 +261,12 @@
     
 
     <script>
+      //functions for displaying image
       function displayimage(){
         if (document.getElementById) {
           w = screen.availWidth;
           h = screen.availHeight;
         }  
-        // document.getElementById("resized.jpg").width = window.innerWidth;
-        // document.getElementById("resized.jpg").height = window.innerHeight;
         var popW = 800, popH = 700;
 
         var leftPos = (w-popW)/2;

@@ -134,17 +134,19 @@
 
 
     <script>
-        var leftdistance = 0;//TODO: getleftdistance()
+        //replace html numbers with fetched sensor data
+        var leftdistance = 0;
         document.getElementById("LeftDistance").innerHTML = leftdistance;
-        var rightdistance = 0;//TODO: getrightdistance()
+        var rightdistance = 0;
         document.getElementById("RightDistance").innerHTML = rightdistance;
-        var topdistance = 0;//TODO: gettopdistance()
+        var topdistance = 0;
         document.getElementById("TopDistance").innerHTML = topdistance;
-        var botdistance = 0;//TODO: getbotdistance()
+        var botdistance = 0;
         document.getElementById("BotDistance").innerHTML = botdistance;
     </script>
 
     <script>
+        //function for checking which keyboard key being pressed
         function doWhichKey(e) { 
             e = e || window.event;
             var charCode = e.keyCode || e.which;
@@ -161,10 +163,13 @@
             }
         } 
 
+        /*event handlers*/
+        //check for keypress
         window.addEventListener('keypress', function (e) { 
             console.log("You pressed " + doWhichKey(e));
         }, false);
 
+        //check for keyup
         window.addEventListener('keyup', function (e) { 
             console.log("You up " + requestingn());
         }, false);
@@ -174,13 +179,13 @@
         document.getElementById("rightarrowicon").addEventListener("mousedown", requestingd);
         document.getElementById("botarrowicon").addEventListener("mousedown", requestings);
 
-
-
-
+        //check for mouse up
         window.addEventListener('mouseup', e => {
             requestingn();
             
         });
+
+        //send out move forward message as json to the car
         function requestingw(){
             var url = "http://cpen291-14.ece.ubc.ca/instruc";
 
@@ -198,6 +203,7 @@
             xhr.send('{"direction": "forward" }');
         }
 
+        //send out turn left message as json to the car
         function requestingl(){
 
             var url = "http://cpen291-14.ece.ubc.ca/instruc";
@@ -216,6 +222,8 @@
             xhr.send('{"direction": "leftward" }');
 
         }
+
+         //send out move backward message as json to the car
         function requestings(){
 
             var url = "http://cpen291-14.ece.ubc.ca/instruc";
@@ -235,6 +243,7 @@
 
         }
 
+         //send out turn right message as json to the car
         function requestingd(){
 
             var url = "http://cpen291-14.ece.ubc.ca/instruc";
@@ -253,6 +262,8 @@
             xhr.send('{"direction": "rightward" }');
 
         }
+
+        //send out stop message as json to the car
         function requestingn(){
 
                 var url = "http://cpen291-14.ece.ubc.ca/instruc";
@@ -272,7 +283,7 @@
 
         }
 
-        
+        //display the image in popup
         function displayimage(){
             if (document.getElementById) {
                 w = screen.availWidth;
@@ -288,10 +299,6 @@
             window.open('http://cpen291-14.ece.ubc.ca/public/resized.jpg', '_blank');
         }
       
-        function changecolour(){
-            const div = document.getElementById("warningsign");
-            div.style.color = "Black";
-        }
             
     </script>
 

@@ -1,4 +1,7 @@
 
+
+
+// import the library and set up the module and initiate the variables 
 const res = require('express/lib/response');
 const port = 80;
 
@@ -19,7 +22,7 @@ var data_html;
 app.use('/', express.static('public'));
 app.use(bodyParser.json({limit:'50mb'})); 
 app.use(bodyParser.urlencoded({ limit:'50mb',extended: true })); 
-app.post("/postdata", (req, res) => { 
+app.post("/postdata", (req, res) => {     // a route to respond the post request from the respberry pi  
         
     var left = req.body.leftdist; 
     var right = req.body.rightdist; 
@@ -63,7 +66,7 @@ app.post("/postdata", (req, res) => {
     res.send("process complete"); 
 }); 
 
-app.post("/postimg",(req,res)=>{
+app.post("/postimg",(req,res)=>{    // the route to handle the img-post request from the respberry pi 
 
     var img = req.body.image;
     if(img!=""){
@@ -78,16 +81,16 @@ app.post("/postimg",(req,res)=>{
     res.send("process complete"); 
 });
 
-app.post("/instruc", (req, res) => { 
+app.post("/instruc", (req, res) => {   // the route to handle the instruction-post request from the web browser
         
     data_html= req.body.direction; 
-   // console.log( data_html );
+   console.log( data_html );
     
     res.send("process complete"); 
 }); 
 
 
-app.get("/getdata", (req, res) => { 
+app.get("/getdata", (req, res) => {  // the route to handle the get request from the respberry pi 
     var data= { // this is the data you're sending back during the GET request 
         direction: "forward",
     } 
@@ -102,13 +105,13 @@ app.get("/getdata", (req, res) => {
     }
 }); 
 
-app.get('/public/resized.jpg', (req, res) => {
+app.get('/public/resized.jpg', (req, res) => {   // the route to push the img to the browser
     
     res.sendFile('/home/a14root/web/public/resized.jpg')
   });
 
 
-app.get('/left', function(req, res) {
+app.get('/left', function(req, res) {   //the event handler that reads from local txt and sends the text to the front html
 
     res.writeHead(200, {
         'Content-Type': 'text/event-stream',
@@ -136,9 +139,10 @@ app.get('/left', function(req, res) {
         clearInterval(interval);
         res.end();
     });
-}) 
+})
 
-app.get('/right', function(req, res) {
+app.get('/right', function(req, res) {  //the event handler that reads from local txt and sends the text to the front html
+
 
     res.writeHead(200, {
         'Content-Type': 'text/event-stream',
@@ -168,7 +172,8 @@ app.get('/right', function(req, res) {
     });
 }) 
 
-app.get('/front', function(req, res) {
+app.get('/front', function(req, res) {  //the event handler that reads from local txt and sends the text to the front html
+
 
     res.writeHead(200, {
         'Content-Type': 'text/event-stream',
@@ -198,7 +203,7 @@ app.get('/front', function(req, res) {
     });
 }) 
 
-app.get('/back', function(req, res) {
+app.get('/back', function(req, res) {     //the event handler that reads from local txt and sends the text to the front html
 
     res.writeHead(200, {
         'Content-Type': 'text/event-stream',
@@ -230,7 +235,7 @@ app.get('/back', function(req, res) {
 
 
 
-app.listen(port, () => {
+app.listen(port, () => {  // listen to the port for connection 
   console.log(`Listening at http://localhost:${port}`)
 })
 
