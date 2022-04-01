@@ -1,0 +1,263 @@
+/*body*/
+body {
+    background-color: #01d6e6;
+    width: 400px;
+    height: 300px;
+    margin: 0;
+    padding: 0;
+}
+
+.carimg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -68px;
+    margin-top: -110px;
+}
+
+/*-------------------------Right Arrow Styling and Animation--------------------------*/
+#rightarrowicon {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%,-50%);
+    width: 50px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.Rmidstick {
+    position: absolute;
+    top: 25px;
+    width: 70%;
+    height: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.Rbotstick{
+    position: absolute;
+    top:32px;
+    width: 60%;
+    height: 10px;
+    right: 4px;
+    background-color: rgb(255, 255, 255);
+    transform: rotate(-45deg);
+}
+
+.Rtopstick{
+    position: absolute;
+    top: 18px;
+    width: 60%;
+    height: 10px;
+    right: 4px;
+    background-color: rgb(255, 255, 255);
+    transform: rotate(45deg);
+}
+#rightarrowicon:hover .Rmidstick{
+    background-color: rgb(0, 41, 221);
+}
+#rightarrowicon:hover .Rbotstick{
+    background-color: rgb(0, 41, 221);
+}
+#rightarrowicon:hover .Rtopstick{
+    background-color: rgb(0, 41, 221);
+}
+
+/*-------------------------Leftarrow styling and animation--------------------------*/
+#leftarrowicon {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%,-50%);
+    width: 50px;
+    height: 30px;
+    cursor: pointer;
+}
+.Lmidstick{
+    position: absolute;
+    top: 25px;
+    width: 70%;
+    height: 10px;
+    background-color: rgb(255, 255, 255);
+}
+.Ltopstick{
+    position: absolute;
+    top: 18px;
+    width: 60%;
+    height: 10px;
+    right: 32px;
+    background-color: rgb(255, 255, 255);
+    transform:rotate(-45deg);
+}
+.Lbotstick{
+    position: absolute;
+    top:32px;
+    width:60%;
+    height: 10px;
+    right:32px;
+    background-color: rgb(255, 255, 255);
+    transform: rotate(45deg);
+}
+#leftarrowicon:hover .Lmidstick{
+    background-color: rgb(0, 41, 221);
+}
+#leftarrowicon:hover .Lbotstick{
+    background-color: rgb(0, 41, 221);
+}
+#leftarrowicon:hover .Ltopstick{
+    background-color: rgb(0, 41, 221);
+}
+
+/*-------------------------Top Arrow Styling and Animation--------------------------*/
+#toparrowicon {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50px;
+    height: 30px;
+    cursor: pointer;
+}
+.Tmidstick {
+    position: absolute;
+    top: 25px;
+    width: 70%;
+    height: 10px;
+    background-color: rgb(255, 255, 255);
+    transform: rotate(90deg);
+}
+.Tleftstick {
+    position: absolute;
+    top: 14px;
+    width: 60%;
+    height: 10px;
+    right: 25px;
+    background-color: rgb(255, 255, 255);
+    transform:rotate(-45deg);
+}
+.Trightstick {
+    position: absolute;
+    top: 14px;
+    width: 60%;
+    height: 10px;
+    right: 10px;
+    background-color: rgb(255, 255, 255);
+    transform: rotate(45deg);
+}
+
+#toparrowicon:hover .Tmidstick{
+    background-color: rgb(0, 41, 221);
+}
+#toparrowicon:hover .Trightstick{
+    background-color: rgb(0, 41, 221);
+}
+#toparrowicon:hover .Tleftstick{
+    background-color: rgb(0, 41, 221);
+}
+
+#toparrowicon:active .Tmidstick{
+    background-color: rgb(0, 41, 221);
+}
+#toparrowicon:active .Trightstick{
+    background-color: rgb(0, 41, 221);
+}
+#toparrowicon:active .Tleftstick{
+    background-color: rgb(0, 41, 221);
+}
+
+/*-------------------------Bottom Arrow Styling and Animation--------------------------*/
+#botarrowicon {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50px;
+    height: 30px;
+    cursor: pointer;
+}
+.Bmidstick {
+    position: absolute;
+    top: 25px;
+    width: 70%;
+    height: 10px;
+    background-color: rgb(255, 255, 255);
+    transform: rotate(90deg);
+}
+.Brightstick {
+    position: absolute;
+    top: 36px;
+    width: 60%;
+    height: 10px;
+    right: 10px;
+    background-color: rgb(255, 255, 255);
+    transform:rotate(-45deg);
+}
+.Bleftstick {
+    position: absolute;
+    top: 36px;
+    width: 60%;
+    height: 10px;
+    right: 25px;
+    background-color: rgb(255, 255, 255);
+    transform: rotate(45deg);
+}
+
+#botarrowicon:hover .Bmidstick{
+    background-color: rgb(0, 41, 221);
+}
+#botarrowicon:hover .Brightstick{
+    background-color: rgb(0, 41, 221);
+}
+#botarrowicon:hover .Bleftstick{
+    background-color: rgb(0, 41, 221);
+}
+
+/*-------------------------Distance Position--------------------------*/
+#LeftDistance {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Andale Mono, monospace;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+
+
+    /* margin-left: -85px; */
+} 
+
+#RightDistance {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Andale Mono, monospace;
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    margin-left: -45px;
+    /* margin-left: 65px; */
+}
+
+#TopDistance {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Andale Mono, monospace;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    margin-left: -45px;
+    /*margin-top: -135px; */
+}
+
+#BotDistance {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Andale Mono, monospace;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    margin-left: -45px;
+    /*margin-top: 140px; */
+}
